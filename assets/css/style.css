@@ -59,7 +59,7 @@ form button:hover {
   background: var(--primary-color-darker);
 }
 
-.apagar,
+.clean,
 .btn-add-task {
   margin: 0.5rem;
   padding: 0.5rem;
@@ -72,7 +72,7 @@ form button:hover {
   transition: ease-in-out;
   transition-duration: 0.4s;
 }
-.apagar:hover,
+.clean:hover,
 .btn-add-task:hover {
   background-color: #fff;
   color: #000;
