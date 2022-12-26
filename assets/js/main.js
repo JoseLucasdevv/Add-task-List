@@ -18,7 +18,7 @@ inputTask.addEventListener("keypress", (e) => {
 });
 document.addEventListener("click", (e) => {
   const el = e.target;
-  if (el.classList.contains("apagar")) {
+  if (el.classList.contains("clean")) {
     el.parentElement.remove();
     saveTask();
     inputTask.focus();
@@ -35,7 +35,7 @@ function createTask() {
   let li = createLi();
   let btnClean = createCleanBtn();
   btnClean.innerText = "Clean";
-  btnClean.setAttribute("class", "apagar");
+  btnClean.setAttribute("class", "clean");
   btnClean.cl;
   li.innerHTML = inputTask.value;
   tasks.appendChild(li);
