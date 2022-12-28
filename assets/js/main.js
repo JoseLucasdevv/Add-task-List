@@ -3,16 +3,19 @@ const btnAddTask = document.querySelector(".btn-add-task");
 const tasks = document.querySelector(".tasks");
 
 btnAddTask.addEventListener("click", (e) => {
-  createTask();
+  const inputValue = inputTask.value;
+  console.log(inputValue);
+  createTask(inputValue);
   inputTask.value = "";
   inputTask.focus();
 });
 
 inputTask.addEventListener("keypress", (e) => {
+  const inputValue = inputTask.value;
   if (e.keyCode === 13) {
     if (!inputTask.value) return;
-    createTask();
-    inputTask.value = "";
+    createTask(inputValue);
+    inputTask.value = " ";
     inputTask.focus();
   }
 });
@@ -30,14 +33,13 @@ function createLi() {
   return li;
 }
 
-function createTask() {
-  if (!inputTask.value) return;
-  let li = createLi();
+function createTask(inputValue) {
+  if (!inputValue) return;
+  li = createLi();
   let btnClean = createCleanBtn();
   btnClean.innerText = "Clean";
   btnClean.setAttribute("class", "clean");
-  btnClean.cl;
-  li.innerHTML = inputTask.value;
+  li.innerHTML = inputValue;
   tasks.appendChild(li);
   li.appendChild(btnClean);
   saveTask();
@@ -52,8 +54,17 @@ function saveTask() {
   const task = tasks.querySelectorAll("li");
   const vectorTask = [];
   for (let tasks of task) {
-    vectorTask.push(tasks.innerText.replace("Apagar", "").trim());
+    vectorTask.push(tasks.innerText.replace("Clean", "").trim());
   }
-  let jsonTask = JSON.stringify(vectorTask);
+  const jsonTask = JSON.stringify(vectorTask);
   localStorage.setItem("task", jsonTask);
 }
+
+function getTask() {
+  const task = localStorage.getItem("task");
+  const listOfTask = JSON.parse(task);
+  for (let tasks of listOfTask) {
+    createTask(tasks);
+  }
+}
+getTask();
