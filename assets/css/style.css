@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
 :root {
-  --primary-color: rgb(32, 17, 116);
-  --primary-color-darker: rgb(9, 48, 56);
+  --primary-color: rgb(0, 12, 29);
+  --primary-color-darker: rgb(45, 0, 206);
 }
 
 * {
@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-  max-width: 640px;
+  width: 640px;
   margin: 50px auto;
   background: #fff;
   padding: 20px;
@@ -60,7 +60,8 @@ form button:hover {
 }
 
 .clean,
-.btn-add-task {
+.btn-add-task,
+.Done {
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -73,11 +74,19 @@ form button:hover {
   transition-duration: 0.4s;
 }
 .clean:hover,
-.btn-add-task:hover {
+.btn-add-task:hover,
+.Done:hover {
   background-color: #fff;
   color: #000;
 }
 .input-task {
   padding: 0.5rem;
   border-radius: 0.5rem;
+}
+ul {
+  position: relative;
+  max-width: 500px;
+}
+span {
+  color: red;
 }
